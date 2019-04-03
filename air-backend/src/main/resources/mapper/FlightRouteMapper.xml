@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 映射接口，必须为完整的包名加类名 -->
+<mapper namespace="com.air.demo.dao.FlightRouteMapper">
+  <!-- 实体映射 -->
+  <resultMap id="FlightRoute" type="FlightRoute">
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="flightid" property="flightid" jdbcType="INTEGER" />
+    <result column="height" property="height" jdbcType="VARCHAR" />
+    <result column="jing" property="jing" jdbcType="VARCHAR" />
+    <result column="wei" property="wei" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="weather" property="weather" jdbcType="VARCHAR" />
+    <result column="time" property="time" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <insert id="addFlightRoute" parameterType="FlightRoute">
+    insert into t_flightroute (flightid,height,jing,wei,city,weather,time) values (#{flightid},#{height},#{jing},#{wei},#{city},#{weather},#{time})
+  </insert>
+
+  <select id="selectFlightRouteByFlightId" resultMap="FlightRoute" resultMap="FlightRoute">
+    select * from t_flightroute where flightid=#{flightid}
+  </select>
+
+  <delete id="delFlightRouteByFlightId" parameterType="FlightRoute">
+    delete from t_flightroute where id=#{id}
+  </delete>
+
+</mapper>

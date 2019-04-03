@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 映射接口，必须为完整的包名加类名 -->
+<mapper namespace="com.air.demo.dao.OrderMapper">
+  <!-- 实体映射 -->
+  <resultMap id="Order" type="Order">
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="createtime" property="createtime" jdbcType="VARCHAR" />
+    <result column="buyerid" property="buyerid" jdbcType="INTEGER" />
+    <result column="flightid" property="flightid" jdbcType="INTEGER" />
+  </resultMap>
+
+
+</mapper>

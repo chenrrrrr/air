@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 映射接口，必须为完整的包名加类名 -->
+<mapper namespace="com.air.demo.dao.FlightMapper">
+  <!-- 实体映射 -->
+  <resultMap id="Flight" type="Flight">
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="ttime" property="ttime" jdbcType="VARCHAR" />
+    <result column="no" property="no" jdbcType="VARCHAR" />
+    <result column="company" property="company" jdbcType="VARCHAR" />
+    <result column="planemodel" property="planemodel" jdbcType="VARCHAR" />
+    <result column="destination" property="destination" jdbcType="VARCHAR" />
+    <result column="plantime" property="plantime" jdbcType="VARCHAR" />
+    <result column="tno" property="tno" jdbcType="VARCHAR" />
+    <result column="port" property="port" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <insert id="addFlight" parameterType="Flight">
+    insert into t_flight (ttime,no,company,planemodel,destination,plantime,tno,port) values (#{ttime},#{no},#{company},#{planemodel},#{destination},#{plantime},#{tno},#{port})
+  </insert>
+
+  <select id="selectFlight" resultMap="Flight">
+    select * from t_flight
+  </select>
+
+  <delete id="delFlightById" parameterType="Flight">
+    delete from t_flight where id=#{id}
+  </delete>
+
+  <update id="updateFlight" parameterType="Flight">
+    update t_flight set ttime=#{ttime},no=#{no},company=#{company},planemodel=#{planemodel},destination=#{destination},plantime=#{plantime},tno=#{tno},port=#{tno} where id=#{id}
+  </update>
+
+</mapper>
