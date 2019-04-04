@@ -42,12 +42,12 @@
           <el-form-item label="经纬度"
                         :rules="{ required: true, message: '不能为空', trigger: 'blur' }">
             <el-row :gutter="20">
-              <el-col :span="4"
+              <el-col :span="6"
                       style="padding-left:0">
                 <el-input v-model="flightRoute.jing"
                           placeholder="经度"></el-input>
               </el-col>
-              <el-col :span="4">
+              <el-col :span="6">
                 <el-input v-model="flightRoute.wei"
                           placeholder="纬度"></el-input>
               </el-col>
@@ -56,12 +56,12 @@
           <el-form-item label="沿途"
                         :rules="{ required: true, message: '不能为空', trigger: 'blur' }">
             <el-row :gutter="20">
-              <el-col :span="4"
+              <el-col :span="6"
                       style="padding-left:0">
                 <el-input v-model="flightRoute.height"
                           placeholder="高度"></el-input>
               </el-col>
-              <el-col :span="4">
+              <el-col :span="6">
                 <el-input v-model="flightRoute.city"
                           placeholder="城市"></el-input>
               </el-col>
@@ -73,33 +73,37 @@
           </el-form-item>
         </el-form>
       </el-col>
-      <el-col :span="10">
+      <el-col :span="14">
         <el-table :data="tableData"
                   border
                   style="width: 100%">
           <el-table-column fixed
-                           prop="date"
-                           label="日期"
-                           width="150">
+                           prop="id"
+                           label="ID"
+                           width="100">
           </el-table-column>
-          <el-table-column prop="name"
-                           label="姓名"
+          <el-table-column prop="height"
+                           label="高度/米"
                            width="120">
           </el-table-column>
-          <el-table-column prop="province"
-                           label="省份"
+          <el-table-column prop="jing"
+                           label="经度"
+                           width="120">
+          </el-table-column>
+          <el-table-column prop="wei"
+                           label="纬度"
                            width="120">
           </el-table-column>
           <el-table-column prop="city"
-                           label="市区"
+                           label="城市"
+                           width="200">
+          </el-table-column>
+          <el-table-column prop="weather"
+                           label="天气"
                            width="120">
           </el-table-column>
-          <el-table-column prop="address"
-                           label="地址"
-                           width="300">
-          </el-table-column>
-          <el-table-column prop="zip"
-                           label="邮编"
+          <el-table-column prop="time"
+                           label="时刻"
                            width="120">
           </el-table-column>
           <el-table-column fixed="right"
@@ -179,6 +183,7 @@ export default {
           this.axios.post("/api/addFlightRoute", this.flightRoute).then(res => {
             if (res.data.code === 0) {
               this.$message(res.data.msg);
+              this.renderFlightRouteByFlightId(+this.flightRoute.flightid)
             }
           });
           console.log(this.flightRoute);

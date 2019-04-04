@@ -34,11 +34,6 @@
                           @click="delUpdateUser">修改/删除</el-menu-item>
           </el-menu-item-group>
         </el-submenu>
-        <el-menu-item index="3"
-                      @click="destinationConfig">
-          <i class="el-icon-date"></i>
-          <span slot="title">航班目的地周边配置</span>
-        </el-menu-item>
         <el-menu-item index="4"
                       @click="handleExit">
           <i class="el-icon-back"></i>
@@ -76,9 +71,6 @@ export default {
     delUpdateUser() {
       this.$router.push("/admin/delUpdateUser");
     },
-    destinationConfig() {
-      this.$router.push("/admin/destinationConfig");
-    }
   }
 };
 </script>

@@ -30,11 +30,6 @@
                         :rules="{ required: true, message: '不能为空', trigger: 'blur' }">
             <el-input v-model="flight.planemodel"></el-input>
           </el-form-item>
-          <el-form-item label="目的地"
-                        prop="destination"
-                        :rules="{ required: true, message: '不能为空', trigger: 'blur' }">
-            <el-input v-model="flight.destination"></el-input>
-          </el-form-item>
           <el-form-item label="计划起飞时间"
                         prop="plantime"
                         :rules="{ required: true, message: '不能为空', trigger: 'blur' }">
@@ -52,6 +47,17 @@
                         prop="port"
                         :rules="{ required: true, message: '不能为空', trigger: 'blur' }">
             <el-input v-model="flight.port"></el-input>
+          </el-form-item>
+          <el-form-item label="目的地"
+                        prop="destination"
+                        :rules="{ required: true, message: '不能为空', trigger: 'blur' }">
+            <el-input v-model="flight.destination"></el-input>
+          </el-form-item>
+          <el-form-item label="目的地信息"
+                        prop="extra"
+                        :rules="{ required: true, message: '不能为空', trigger: 'blur' }">
+            <el-input type="textarea"
+                      v-model="flight.extra"></el-input>
           </el-form-item>
           <el-form-item>
             <el-button type="primary"
@@ -75,7 +81,8 @@ export default {
         destination: "",
         plantime: "",
         tno: "",
-        port: ""
+        port: "",
+        extra: ""
       }
     };
   },

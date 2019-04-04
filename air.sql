@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50712
 File Encoding         : 65001
 
-Date: 2019-04-04 07:02:36
+Date: 2019-04-04 17:51:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -43,15 +43,16 @@ CREATE TABLE `t_flight` (
   `destination` varchar(255) NOT NULL,
   `plantime` varchar(255) NOT NULL,
   `tno` varchar(255) NOT NULL,
-  `port` varchar(11) NOT NULL,
+  `port` varchar(255) NOT NULL,
+  `extra` varchar(2500) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_flight
 -- ----------------------------
-INSERT INTO `t_flight` VALUES ('1', '2019-04-08T16:00:00.000Z', 'ZH9384 CA3360 KY9384 3U408', '深圳航空有限责任公司', 'B738', '南宁', '09:15', 'T2', 'T2');
-INSERT INTO `t_flight` VALUES ('2', '2019-04-14T16:00:00.000Z', 'A67302 LH7302', '云南红土航空公司', 'A319', '保山	', '09:15', 'T1', '11');
+INSERT INTO `t_flight` VALUES ('1', '2019-04-08T16:00:00.000Z', 'ZH9384 CA3360 KY9384 3U408', '深圳航空有限责任公司', 'B738', '南宁', '09:15', 'T2', 'T2', '啤酒炸鸡');
+INSERT INTO `t_flight` VALUES ('2', '2019-04-14T16:00:00.000Z', 'A67302 LH7302', '云南红土航空公司', 'A319', '保山	', '09:15', 'T1', '11', '哟哟，切克闹');
 
 -- ----------------------------
 -- Table structure for t_flightroute
@@ -65,13 +66,17 @@ CREATE TABLE `t_flightroute` (
   `wei` varchar(255) NOT NULL,
   `city` varchar(255) NOT NULL,
   `weather` varchar(255) NOT NULL,
-  `time` datetime NOT NULL,
+  `time` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of t_flightroute
 -- ----------------------------
+INSERT INTO `t_flightroute` VALUES ('2', '1', '111', '11°E', '11°N', '贵州', '晴', '00:15');
+INSERT INTO `t_flightroute` VALUES ('3', '1', '223232', '22°E', '22°N', '赣西', '小雨', '00:30');
+INSERT INTO `t_flightroute` VALUES ('4', '1', '1123', '33°E', '33°N', '兰州', '小雨', '00:45');
+INSERT INTO `t_flightroute` VALUES ('5', '1', '234234', '44°E', '44°N', '江西', '中雨', '00:45');
 
 -- ----------------------------
 -- Table structure for t_msg

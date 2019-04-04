@@ -20,7 +20,7 @@
     insert into t_flightroute (flightid,height,jing,wei,city,weather,time) values (#{flightid},#{height},#{jing},#{wei},#{city},#{weather},#{time})
   </insert>
 
-  <select id="selectFlightRouteByFlightId" resultMap="FlightRoute" resultMap="FlightRoute">
+  <select id="selectFlightRouteByFlightId" resultMap="FlightRoute">
     select * from t_flightroute where flightid=#{flightid}
   </select>
 

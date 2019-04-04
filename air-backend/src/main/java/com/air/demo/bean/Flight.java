@@ -25,4 +25,5 @@ public class Flight {
   private String plantime;
   private String tno;
   private String port;
+  private String extra;
 }
